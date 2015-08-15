@@ -12,20 +12,23 @@ output: html_document
 ```
 
 #Loading and preprocessing the data
-1. Code below will load the Activity data from activity.csv (assumes that it was previously downloaded and unzipped into working directory)
+     
+Code below will load the Activity data from activity.csv (assumes that it was previously downloaded and unzipped into working directory)
 
 ```r
         data<-read.csv("activity.csv",stringsAsFactors=FALSE)
 ```
 
 #What is mean total number of steps taken per day?
-1. Calculating the total number of steps taken per day:
+     
+Calculating the total number of steps taken per day:
 
 ```r
         a<-aggregate(data$steps,by=list(data$date),FUN="sum")
         colnames(a)<-c("date","steps")
 ```
-2. Creating a histogram of the total number of steps taken each day
+
+Creating a histogram of the total number of steps taken each day
 
 ```r
 hist(a$steps,
@@ -34,7 +37,8 @@ hist(a$steps,
 ```
 
 ![plot of chunk histogram](figure/histogram-1.png) 
-3. Calculating and reporting the mean and median of the total number of steps 
+
+Calculating and reporting the mean and median of the total number of steps 
 taken per day
 
 ```r
@@ -54,9 +58,10 @@ taken per day
 ```
 ## [1] "Median is 10765"
 ```
+
 #What is the average daily activity pattern?
 
-1. Making a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) 
+Making a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) 
 and the average number of steps taken, averaged across all days (y-axis)
 
 ```r
@@ -67,7 +72,8 @@ and the average number of steps taken, averaged across all days (y-axis)
 ```
 
 ![plot of chunk interval](figure/interval-1.png) 
-2. Which 5-minute interval, on average across all the days in the dataset, 
+
+Which 5-minute interval, on average across all the days in the dataset, 
 contains the maximum number of steps?
 
 ```r
@@ -81,7 +87,7 @@ contains the maximum number of steps?
 
 #Imputing missing values
 
-1. Calculating and reporting the total number of missing values in the dataset 
+Calculating and reporting the total number of missing values in the dataset 
 (i.e. the total number of rows with NAs)
 
 ```r
@@ -93,10 +99,10 @@ contains the maximum number of steps?
 ## [1] "2304 rows have missing values"
 ```
 
-2. Devise a strategy for filling in all of the missing values in the dataset:
+Devise a strategy for filling in all of the missing values in the dataset:
 using the mean for the same 5-minute interval
 
-3. Create a new dataset that is equal to the original dataset but with the 
+Create a new dataset that is equal to the original dataset but with the 
 missing data filled in.
 
 ```r
@@ -114,8 +120,7 @@ missing data filled in.
 ## [1] "0 NA's in new dataset"
 ```
 
-
-4. Making a histogram of the total number of steps taken each day:
+Making a histogram of the total number of steps taken each day:
 
 ```r
         anew<-aggregate(dataset$steps,by=list(dataset$date),FUN="sum")
@@ -126,6 +131,7 @@ missing data filled in.
 ```
 
 ![plot of chunk histogramnew](figure/histogramnew-1.png) 
+
 Calculating the mean and median total number of steps taken per day: 
 
 ```r
@@ -145,6 +151,7 @@ Calculating the mean and median total number of steps taken per day:
 ```
 ## [1] "Median is 10766.19"
 ```
+
 Do these values differ from the estimates from the first part of the assignment? 
 
 ```r
@@ -169,7 +176,7 @@ steps is that Mean remained unchanged while Median increased.
 
 #Are there differences in activity patterns between weekdays and weekends?
 
-1. Creating a new factor variable in the dataset with two levels – “weekday” and 
+Creating a new factor variable in the dataset with two levels – “weekday” and 
 “weekend” indicating whether a given date is a weekday or weekend day.
 
 ```r
@@ -179,7 +186,7 @@ steps is that Mean remained unchanged while Median increased.
         "Thursday","Friday"),weekend=c("Saturday","Sunday"))
 ```
 
-2. Making a panel plot containing a time series plot (i.e. type = "l") of the 
+Making a panel plot containing a time series plot (i.e. type = "l") of the 
 5-minute interval (x-axis) and the average number of steps taken, averaged 
 across all weekday days or weekend days (y-axis) with lattice package
 
