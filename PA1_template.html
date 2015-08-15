@@ -337,10 +337,10 @@ missing data filled in.</p>
 </code></pre>
 
 <pre><code class="r">        paste(&quot;The difference between new Median and old Median is&quot;, 
-              mediannew-median, sep=&quot; &quot;)
+              round(mediannew-median,2), sep=&quot; &quot;)
 </code></pre>
 
-<pre><code>## [1] &quot;The difference between new Median and old Median is 1.1886792452824&quot;
+<pre><code>## [1] &quot;The difference between new Median and old Median is 1.19&quot;
 </code></pre>
 
 <p>The impact of imputing missing data on the estimates of the total daily number of 

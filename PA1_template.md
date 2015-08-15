@@ -165,11 +165,11 @@ Do these values differ from the estimates from the first part of the assignment?
 
 ```r
         paste("The difference between new Median and old Median is", 
-              mediannew-median, sep=" ")
+              round(mediannew-median,2), sep=" ")
 ```
 
 ```
-## [1] "The difference between new Median and old Median is 1.1886792452824"
+## [1] "The difference between new Median and old Median is 1.19"
 ```
 The impact of imputing missing data on the estimates of the total daily number of 
 steps is that Mean remained unchanged while Median increased. 

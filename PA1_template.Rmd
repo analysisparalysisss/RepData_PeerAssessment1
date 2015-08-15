@@ -106,7 +106,7 @@ Do these values differ from the estimates from the first part of the assignment?
         paste("The difference between new Mean and old Mean is", 
               meannew-mean, sep=" ")
         paste("The difference between new Median and old Median is", 
-              mediannew-median, sep=" ")
+              round(mediannew-median,2), sep=" ")
 ```
 The impact of imputing missing data on the estimates of the total daily number of 
 steps is that Mean remained unchanged while Median increased. 
